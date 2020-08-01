@@ -1,0 +1,14 @@
+{
+	"name": "sb/sb-prevnext-block",
+	"title": "PrevNext block",
+	"category": "widgets",
+	"icon": "leftright",
+	"description": "Display Previous and Next links.",
+	"textdomain": "sb",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
