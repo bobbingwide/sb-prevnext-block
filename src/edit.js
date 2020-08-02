@@ -4,6 +4,8 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
+import { Fragment} from '@wordpress/element';
+import { InspectorControls} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -26,8 +28,11 @@ import './editor.scss';
  */
 export default function Edit( { className } ) {
 	return (
+		<Fragment>
+			<InspectorControls></InspectorControls>
 		<p className={ className }>
 			{ __( 'PrevNext block – hello from the editor!', 'sb' ) }
 		</p>
+		</Fragment>
 	);
 }
