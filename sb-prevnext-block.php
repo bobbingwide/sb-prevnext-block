@@ -68,7 +68,7 @@ function sb_prevnext_block_dynamic_block( $attributes ) {
 	$className = isset( $attributes['className']) ? $attributes['className'] : 'wp-block-sb-prevnext-block';
 	$html = '<div class="'. $className . '">';
 	$html .= sb_prevnext_getprevnext();
-	$html .= '<div style="clear:both;"></div>';
+	//$html .= '<div style="clear:both;"></div>';
 	$html .= '</div>';
 	return $html;
 }
@@ -81,8 +81,8 @@ function sb_prevnext_getprevnext()  {
 	$pagelist = null;
 	if ( $parent ) {
 		list( $prev, $next ) = sb_prevnext_getsiblings( $parent, $ID );
-		$html = sb_prevnext_get_link( $prev, "alignleft", "<< ", "");
-		$html .= sb_prevnext_get_link( $next, "alignright", "", " >>");
+		$html = sb_prevnext_get_link( $prev, "prev", "<< ", "");
+		$html .= sb_prevnext_get_link( $next, "next", "", " >>");
 		//$html = "Prev: " . $prevnext[0]->ID;
 		//$html .= "Next" . $prevnext[1]->ID;
 	} else {

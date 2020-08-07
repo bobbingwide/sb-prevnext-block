@@ -16,6 +16,6 @@ import { __ } from '@wordpress/i18n';
  */
 export default function save() {
 	return (
-		<p>{ __( 'PrevNext block – hello from the saved content!', 'sb' ) }</p>
+		null
 	);
 }

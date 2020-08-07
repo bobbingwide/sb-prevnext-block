@@ -6,6 +6,7 @@
 import { __ } from '@wordpress/i18n';
 import { Fragment} from '@wordpress/element';
 import { InspectorControls} from '@wordpress/block-editor';
+import { ServerSideRender } from '@wordpress/editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -26,13 +27,13 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { className } ) {
+export default function Edit( { className, attributes } ) {
 	return (
 		<Fragment>
 			<InspectorControls></InspectorControls>
-		<p className={ className }>
-			{ __( 'PrevNext block – hello from the editor!', 'sb' ) }
-		</p>
+			<ServerSideRender
+				block="sb/sb-prevnext-block" attributes={attributes}
+			/>
 		</Fragment>
 	);
 }
