@@ -55,6 +55,86 @@ function sb_sb_prevnext_block_block_init() {
 		'editor_script' => 'sb-sb-prevnext-block-block-editor',
 		'editor_style'  => 'sb-sb-prevnext-block-block-editor',
 		'style'         => 'sb-sb-prevnext-block-block',
+		'render_callback'=>'sb_prevnext_block_dynamic_block',
+		'attributes' => [
+						'className' => [ 'type' => 'string'],
+		]
+
 	) );
 }
 add_action( 'init', 'sb_sb_prevnext_block_block_init' );
+
+function sb_prevnext_block_dynamic_block( $attributes ) {
+	$className = isset( $attributes['className']) ? $attributes['className'] : 'wp-block-sb-prevnext-block';
+	$html = '<div class="'. $className . '">';
+	$html .= sb_prevnext_getprevnext();
+	$html .= '<div style="clear:both;"></div>';
+	$html .= '</div>';
+	return $html;
+}
+
+function sb_prevnext_getprevnext()  {
+	//static $pages=null;
+	$post = get_post();
+	$ID = $post->ID;
+	$parent = $post->post_parent;
+	$pagelist = null;
+	if ( $parent ) {
+		list( $prev, $next ) = sb_prevnext_getsiblings( $parent, $ID );
+		$html = sb_prevnext_get_link( $prev, "alignleft", "<< ", "");
+		$html .= sb_prevnext_get_link( $next, "alignright", "", " >>");
+		//$html = "Prev: " . $prevnext[0]->ID;
+		//$html .= "Next" . $prevnext[1]->ID;
+	} else {
+		$html = 'Is this a child page?';
+	}
+	return $html;
+}
+
+/**
+ * Returns the Previous and Next posts, if available
+ * 7205, 7191, 7207
+ * @param $parent
+ * @param $child
+ *
+ * @return mixed
+ *
+ */
+function sb_prevnext_getsiblings( $parent, $child ) {
+	$pagelist=get_pages( "child_of=$parent&sort_column=menu_order,post_title,ID&sort_order=asc" );
+	$prev = null;
+	$next = null;
+	foreach ($pagelist as $i => $page) {
+		//$pages[] += $page->ID;
+		if ( $child === $page->ID ) {
+			if ( $i > 0 ) {
+				$prev = $pagelist[ $i - 1 ];
+			}
+
+			if ( $i < count( $pagelist  ) - 1 ) {
+				$next = $pagelist[ $i + 1 ];
+			}
+		}
+	}
+	return [ $prev, $next ];
+}
+
+function sb_prevnext_get_link( $post, $class, $arrow_before, $arrow_after ) {
+	if ( !$post ) {
+		return null;
+	}
+	$html = "<div class=\"$class\">";
+	$html .= '<a href="';
+	$html .= get_permalink($post);
+	$html .= '"';
+	$html .= '/> ';
+	$html .= $arrow_before;
+	//$html .= $post->ID;
+	//$html .= '';
+	$html .= get_the_title($post);
+	$html .= $arrow_after;
+	$html .='</a>';
+	$html .= "</div>";
+
+	return $html;
+}
