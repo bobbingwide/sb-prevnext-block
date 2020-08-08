@@ -14,14 +14,13 @@
   justify-items: stretch;
   grid-template-areas: "a b";
 
+  .next {
+	grid-area: b;
+	justify-self: end;
+  }
 }
 
 
 
-.wp-block-sb-prevnext-block .next {
-  grid-area: b;
-  justify-self: end;
 
-
-}
 
