@@ -79,15 +79,15 @@ function sb_prevnext_getprevnext()  {
 	$ID = $post->ID;
 	$parent = $post->post_parent;
 	$pagelist = null;
-	if ( $parent ) {
+	//if ( $parent ) {
 		list( $prev, $next ) = sb_prevnext_getsiblings( $parent, $ID );
 		$html = sb_prevnext_get_link( $prev, "prev", "<< ", "");
 		$html .= sb_prevnext_get_link( $next, "next", "", " >>");
 		//$html = "Prev: " . $prevnext[0]->ID;
 		//$html .= "Next" . $prevnext[1]->ID;
-	} else {
-		$html = 'Is this a child page?';
-	}
+	//} else {
+	//	$html = 'Is this a child page?';
+	//}
 	return $html;
 }
 
@@ -101,7 +101,8 @@ function sb_prevnext_getprevnext()  {
  *
  */
 function sb_prevnext_getsiblings( $parent, $child ) {
-	$pagelist=get_pages( "child_of=$parent&sort_column=menu_order,post_title,ID&sort_order=asc" );
+	$pagelist=get_pages( "parent=$parent&sort_column=menu_order, post_title, ID&sort_order=asc" );
+	//bw_trace2( $pagelist, "pagelist");
 	$prev = null;
 	$next = null;
 	foreach ($pagelist as $i => $page) {
