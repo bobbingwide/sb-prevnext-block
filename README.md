@@ -2,8 +2,8 @@
 * Contributors:      bobbingwide
 * Tags:              block
 * Requires at least: 5.3.2
-* Tested up to:      5.7.1
-* Stable tag:        0.1.0
+* Tested up to:      6.4.2
+* Stable tag:        0.1.1
 * Requires PHP:      7.3.0
 * License:           GPL-2.0-or-later
 * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -36,12 +36,23 @@ It'll probably become sb-prevnext-block/prevnext
 1. None yet
 
 ## Upgrade Notice 
+# 0.1.1 
+Update for support for PHP 8.1, PHP 8.2 and PHP 8.3
 
 # 0.1.0 
 Version required for use on sneak-peek.me
 
 
 ## Changelog 
+# 0.1.1 
+* Changed: Change import for ServerSideRender #1
+* Changed: Update wp-scripts to v26.18.0 #3
+* Added: Add PHPUnit tests for PHP 8.1, PHP 8.2 and PHP 8.3 #2
+* Tested: With WordPress 6.4.2 and WordPress Multisite
+* Tested: With Gutenberg 17.1.4
+* Tested: With PHP 8.1, PHP 8.2 and PHP 8.3
+* TestedL With PHPUnit 9.6
+
 
 # 0.1.0 
 * Changed: update build to production version
