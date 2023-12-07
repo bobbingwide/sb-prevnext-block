@@ -1,19 +1,29 @@
 {
 	"name": "sb-prevnext-block",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Display Previous and Next links.",
 	"author": "bobbingwide",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
-		"format:js": "wp-scripts format-js",
+		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-scripts start",
-		"packages-update": "wp-scripts packages-update"
+		"packages-update": "wp-scripts packages-update",
+		"dev": "wp-scripts start",
+		"makepot": "wp i18n make-pot . languages/sb-prevnext-block.pot --exclude=node_modules,vendor,src/*.js",
+		"makejson": "wp i18n make-json languages --no-purge",
+		"l10n": "l10n sb-prevnext-block"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^12.15.0",
+		"@wordpress/blocks": "^12.24.0",
+		"@wordpress/i18n": "^4.47.0",
+		"postcss": "^8.4.32"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^12.1.1"
+		"@wordpress/scripts": "^26.18.0"
 	}
 }
