@@ -6,7 +6,7 @@
 import { __ } from '@wordpress/i18n';
 import { Fragment} from '@wordpress/element';
 import { InspectorControls} from '@wordpress/block-editor';
-import { ServerSideRender } from '@wordpress/editor';
+import ServerSideRender from '@wordpress/server-side-render';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
