@@ -1,2 +1,1 @@
-.wp-block-sb-prevnext-block{display:-ms-grid;display:grid;-ms-grid-columns:1fr 0px 1fr;grid-template-columns:repeat(2, 1fr);-ms-grid-rows:1fr;grid-template-rows:1fr;grid-column-gap:0px;grid-row-gap:0px;justify-items:stretch;grid-template-areas:"a b"}.wp-block-sb-prevnext-block .next{-ms-grid-row:1;-ms-grid-column:3;grid-area:b;-ms-grid-column-align:end;justify-self:end}
-
+.wp-block-sb-prevnext-block{grid-column-gap:0;grid-row-gap:0;display:grid;grid-template-areas:"a b";grid-template-columns:repeat(2,1fr);grid-template-rows:1fr;justify-items:stretch}.wp-block-sb-prevnext-block .next{grid-area:b;-ms-grid-column:3;-ms-grid-row:1;justify-self:end}
